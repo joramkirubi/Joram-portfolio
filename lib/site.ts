@@ -9,9 +9,7 @@ export const site = {
   email: "joramkirubi100@gmail.com",
   github: "https://github.com/joramkirubi",
   linkedin: "https://www.linkedin.com/in/joram-kirubi-499683331/",
-  // TODO: replace with your real Calendly / Cal.com / scheduling link
-  calendly: "https://cal.com/joramkirubi",
+  calendly: "https://cal.com/joram-kirubi-a4vpgp",
   resumeUrl: "/resume.pdf",
-  // TODO: replace with your real Vercel/custom domain once deployed
-  url: "https://joramkirubi.dev",
+  url: "https://joram-portfolio.vercel.app",
 };
