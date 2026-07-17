@@ -1,7 +1,8 @@
 ﻿"use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, CalendarClock, FileDown, Mail } from "lucide-react";
+import { ArrowUpRight, CalendarClock, Check, Copy, FileDown, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { site } from "@/lib/site";
 
@@ -39,6 +40,21 @@ const links = [
 ];
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(site.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable (very old browser); the mailto link
+      // itself is still the fallback, so no further action needed.
+    }
+  };
+
   return (
     <section id="contact" className="relative border-t border-border px-6 py-28 md:py-36">
       <div
@@ -75,6 +91,45 @@ export default function Contact() {
             const isLastOdd =
               index === links.length - 1 && links.length % 2 !== 0;
             const isExternal = link.href.startsWith("http");
+            const isEmail = link.label === "Email";
+
+            const cardClasses = `card-glow group flex items-center justify-between rounded-2xl border border-border bg-surface/60 p-6 text-left shadow-card backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow ${
+              isLastOdd ? "sm:col-span-2" : ""
+            }`;
+
+            if (isEmail) {
+              return (
+                <div key={link.label} className={cardClasses}>
+                  <a
+                    href={link.href}
+                    className="flex min-w-0 flex-1 items-center gap-4"
+                  >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <link.icon size={20} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-medium text-white">{link.label}</p>
+                      <p className="truncate text-sm text-muted">
+                        {copied ? "Copied to clipboard!" : link.handle}
+                      </p>
+                    </div>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    aria-label="Copy email address"
+                    className="ml-3 shrink-0 rounded-lg border border-border p-2 text-muted transition-colors hover:border-primary/40 hover:text-primary"
+                  >
+                    {copied ? (
+                      <Check size={16} className="text-primary" />
+                    ) : (
+                      <Copy size={16} />
+                    )}
+                  </button>
+                </div>
+              );
+            }
+
             return (
               <a
                 key={link.label}
@@ -82,9 +137,7 @@ export default function Contact() {
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
                 download={link.label === "Resume" ? true : undefined}
-                className={`card-glow group flex items-center justify-between rounded-2xl border border-border bg-surface/60 p-6 text-left shadow-card backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow ${
-                  isLastOdd ? "sm:col-span-2" : ""
-                }`}
+                className={cardClasses}
               >
                 <div className="flex items-center gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
