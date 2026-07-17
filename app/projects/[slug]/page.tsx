@@ -1,8 +1,9 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { projects, getProject } from "@/lib/projects";
+import { site } from "@/lib/site";
 import CaseStudyAnimated from "@/components/CaseStudyAnimated";
 
 export function generateStaticParams() {
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.name} — Joram Kirubi`,
+    title: `${project.name} â€” Joram Kirubi`,
     description: project.description,
   };
 }
@@ -66,6 +67,22 @@ export default async function ProjectPage({
               >
                 {tech}
               </span>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {project.impactStats.map((stat) => (
+              <div
+                key={stat}
+                className="rounded-xl border border-border bg-surface/50 p-4 text-sm font-medium text-white"
+              >
+                <span
+                  className={`mb-1.5 block h-1 w-6 rounded-full ${
+                    project.accent === "primary" ? "bg-primary" : "bg-accent"
+                  }`}
+                />
+                {stat}
+              </div>
             ))}
           </div>
 
@@ -124,7 +141,7 @@ export default async function ProjectPage({
               Want the code, architecture diagrams, or a walkthrough?
             </p>
             <a
-              href="https://github.com/joramkirubi"
+              href={site.github}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-fit items-center gap-2 rounded-lg border border-border bg-surface/60 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-primary/40 hover:text-primary"

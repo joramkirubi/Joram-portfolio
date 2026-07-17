@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -48,6 +48,13 @@ export default function ProjectCard({
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-muted">
             {project.tagline}
+          </p>
+
+          <p
+            className={`mt-4 inline-flex items-center gap-1.5 text-xs font-medium ${accentText}`}
+          >
+            <span className="h-1 w-1 rounded-full bg-current" />
+            {project.impactStats[0]}
           </p>
         </div>
 

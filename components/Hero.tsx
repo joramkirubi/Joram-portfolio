@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
+import { site } from "@/lib/site";
 
 const container: Variants = {
   hidden: {},
@@ -64,7 +65,7 @@ export default function Hero() {
           variants={item}
           className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted sm:text-lg"
         >
-          I design and build intelligent systems — from multi-agent AI
+          I design and build intelligent systems â€” from multi-agent AI
           platforms to real-world data and fintech infrastructure.
         </motion.p>
 
@@ -83,7 +84,7 @@ export default function Hero() {
             />
           </a>
           <a
-            href="https://github.com/joramkirubi"
+            href={site.github}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary"

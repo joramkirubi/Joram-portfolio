@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail, Menu, X } from "lucide-react";
+import { CalendarClock, FileDown, Mail, Menu, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { site } from "@/lib/site";
 
 const links = [
   { href: "/#projects", label: "Projects" },
@@ -70,14 +71,14 @@ export default function Nav() {
 
         <div className="hidden items-center gap-4 md:flex">
           <a
-            href="mailto:joramkirubi100@gmail.com"
+            href={`mailto:${site.email}`}
             aria-label="Email"
             className="text-muted hover:text-primary transition-colors"
           >
             <Mail size={18} />
           </a>
           <a
-            href="https://github.com/joramkirubi"
+            href={site.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -86,7 +87,7 @@ export default function Nav() {
             <GithubIcon size={18} />
           </a>
           <a
-            href="https://www.linkedin.com/in/joram-kirubi-499683331/"
+            href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -94,6 +95,12 @@ export default function Nav() {
           >
             <LinkedinIcon size={18} />
           </a>
+          <Link
+            href="/#contact"
+            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-background transition-all hover:shadow-glow"
+          >
+            Let&apos;s talk
+          </Link>
         </div>
 
         <button
@@ -127,11 +134,21 @@ export default function Nav() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href={site.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="mt-1 flex items-center gap-2 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-background"
+              >
+                <CalendarClock size={16} />
+                Schedule a Call
+              </a>
             </div>
 
             <div className="flex items-center gap-5 border-t border-border px-6 py-4">
               <a
-                href="mailto:joramkirubi100@gmail.com"
+                href={`mailto:${site.email}`}
                 aria-label="Email"
                 onClick={() => setMenuOpen(false)}
                 className="text-muted hover:text-primary transition-colors"
@@ -139,7 +156,7 @@ export default function Nav() {
                 <Mail size={20} />
               </a>
               <a
-                href="https://github.com/joramkirubi"
+                href={site.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -148,13 +165,22 @@ export default function Nav() {
                 <GithubIcon size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/in/joram-kirubi-499683331/"
+                href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className="text-muted hover:text-primary transition-colors"
               >
                 <LinkedinIcon size={20} />
+              </a>
+              <a
+                href={site.resumeUrl}
+                download
+                aria-label="Download resume"
+                onClick={() => setMenuOpen(false)}
+                className="text-muted hover:text-primary transition-colors"
+              >
+                <FileDown size={20} />
               </a>
             </div>
           </motion.div>

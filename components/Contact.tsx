@@ -1,25 +1,38 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, CalendarClock, FileDown, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { site } from "@/lib/site";
 
 const links = [
   {
     label: "Email",
-    href: "mailto:joramkirubi100@gmail.com",
-    handle: "joramkirubi100@gmail.com",
+    href: `mailto:${site.email}`,
+    handle: site.email,
     icon: Mail,
   },
   {
+    label: "Schedule a Call",
+    href: site.calendly,
+    handle: "Book 30 min",
+    icon: CalendarClock,
+  },
+  {
+    label: "Resume",
+    href: site.resumeUrl,
+    handle: "Download PDF",
+    icon: FileDown,
+  },
+  {
     label: "GitHub",
-    href: "https://github.com/joramkirubi",
+    href: site.github,
     handle: "@joramkirubi",
     icon: GithubIcon,
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/joram-kirubi-499683331/",
+    href: site.linkedin,
     handle: "joram-kirubi",
     icon: LinkedinIcon,
   },
@@ -46,8 +59,8 @@ export default function Contact() {
             Let&apos;s build something intelligent.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
-            Open to backend engineering and agentic AI opportunities. The
-            fastest way to reach me is email, GitHub, or LinkedIn.
+            Open to backend engineering and agentic AI opportunities. Grab
+            time on my calendar, download my resume, or reach out directly.
           </p>
         </motion.div>
 
@@ -56,31 +69,41 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:grid-cols-2"
         >
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="card-glow group flex items-center justify-between rounded-2xl border border-border bg-surface/60 p-6 text-left shadow-card backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <link.icon size={20} />
+          {links.map((link, index) => {
+            const isLastOdd =
+              index === links.length - 1 && links.length % 2 !== 0;
+            const isExternal = link.href.startsWith("http");
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                download={link.label === "Resume" ? true : undefined}
+                className={`card-glow group flex items-center justify-between rounded-2xl border border-border bg-surface/60 p-6 text-left shadow-card backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow ${
+                  isLastOdd ? "sm:col-span-2" : ""
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <link.icon size={20} />
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">{link.label}</p>
+                    <p className="text-sm text-muted break-all">
+                      {link.handle}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-medium text-white">{link.label}</p>
-                  <p className="text-sm text-muted break-all">{link.handle}</p>
-                </div>
-              </div>
-              <ArrowUpRight
-                size={18}
-                className="ml-3 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
-              />
-            </a>
-          ))}
+                <ArrowUpRight
+                  size={18}
+                  className="ml-3 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                />
+              </a>
+            );
+          })}
         </motion.div>
       </div>
     </section>
