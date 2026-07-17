@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { projects } from "@/lib/projects";
@@ -22,7 +22,7 @@ export default function Projects() {
             Flagship Projects
           </h2>
           <p className="mt-4 text-muted">
-            Real systems solving real problems — spanning fintech
+            Real systems solving real problems - spanning fintech
             intelligence, agentic AI orchestration, and backend
             infrastructure.
           </p>

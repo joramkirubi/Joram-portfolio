@@ -7,9 +7,9 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${site.name} â€” ${site.title}`,
+  title: `${site.name} - ${site.title}`,
   description:
-    "Joram Kirubi designs and builds intelligent systems â€” from multi-agent AI platforms to real-world data and fintech infrastructure.",
+    "Joram Kirubi designs and builds intelligent systems - from multi-agent AI platforms to real-world data and fintech infrastructure.",
   metadataBase: new URL(site.url),
   keywords: [
     "Joram Kirubi",
@@ -23,18 +23,18 @@ export const metadata: Metadata = {
     "Kenya software engineer",
   ],
   openGraph: {
-    title: `${site.name} â€” ${site.title}`,
+    title: `${site.name} - ${site.title}`,
     description:
-      "I design and build intelligent systems â€” from multi-agent AI platforms to real-world data and fintech infrastructure.",
+      "I design and build intelligent systems - from multi-agent AI platforms to real-world data and fintech infrastructure.",
     type: "website",
     url: site.url,
     siteName: site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} â€” ${site.title}`,
+    title: `${site.name} - ${site.title}`,
     description:
-      "I design and build intelligent systems â€” from multi-agent AI platforms to real-world data and fintech infrastructure.",
+      "I design and build intelligent systems - from multi-agent AI platforms to real-world data and fintech infrastructure.",
   },
 };
 

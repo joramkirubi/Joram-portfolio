@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -17,11 +17,11 @@ const stack = [
   },
   {
     category: "AI / ML",
-    items: ["OpenAI", "LangChain", "LangGraph", "RAG", "MCP"],
+    items: ["OpenAI", "LangChain", "LangGraph", "RAG", "MCP", "SDKs"],
   },
   {
     category: "Tools",
-    items: ["Docker", "Git", "Linux", "REST APIs"],
+    items: ["Docker", "Git", "Linux", "REST APIs", "n8n", "Postman"],
   },
 ];
 

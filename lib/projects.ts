@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "Transforms raw M-Pesa SMS data into structured financial insights, analytics, and user-friendly dashboards.",
     problem:
-      "M-Pesa moves a huge share of everyday money in Kenya, but the transaction history lives as unstructured, inconsistent SMS text. People have no reliable way to see spending patterns, categorize merchants, or import historical statements without manual, error-prone work â€” and any system touching this data has to take privacy seriously from day one.",
+      "M-Pesa moves a huge share of everyday money in Kenya, but the transaction history lives as unstructured, inconsistent SMS text. People have no reliable way to see spending patterns, categorize merchants, or import historical statements without manual, error-prone work - and any system touching this data has to take privacy seriously from day one.",
     solution:
       "PesaIQ parses SMS and PDF statements into a normalized transaction model, automatically classifies transactions using Kenyan merchant keyword heuristics, and surfaces the result through a mobile-first analytics dashboard. Data protection is treated as a core feature: consent flows, export/deletion endpoints, and PII stripping before any data reaches logging or third-party services.",
     architecture: [
@@ -52,7 +52,7 @@ export const projects: Project[] = [
       "Roadmap: budget planner, debt tracker, savings goals, React Native app",
     ],
     impactStats: [
-      "Kenya DPA 2019 compliant by design",
+      "Automated Kenyan merchant categorization",
       "Composite per-user transaction indexing",
       "Handles password-protected PDF statements",
     ],
@@ -64,9 +64,9 @@ export const projects: Project[] = [
     type: "Agentic AI System",
     tagline: "Coordinated specialist agents that retrieve, reason, and act.",
     description:
-      "A system of coordinated AI agents â€” Medical Assistant, Research Assistant, Publication Assistant, and Customer Support Assistant â€” each combining retrieval, reasoning, and tool usage.",
+      "A system of coordinated AI agents - Medical Assistant, Research Assistant, Publication Assistant, and Customer Support Assistant - each combining retrieval, reasoning, and tool usage.",
     problem:
-      "A single general-purpose model struggles to be precise, safe, and useful across very different domains at once â€” medical Q&A, literature research, publication workflows, and customer support each need different context, tools, and guardrails. Bolting all of it into one prompt produces shallow, unreliable results.",
+      "A single general-purpose model struggles to be precise, safe, and useful across very different domains at once - medical Q&A, literature research, publication workflows, and customer support each need different context, tools, and guardrails. Bolting all of it into one prompt produces shallow, unreliable results.",
     solution:
       "The platform decomposes the problem into specialized agents, each with its own retrieval pipeline, tool access, and reasoning scope, coordinated by an orchestration layer that routes tasks, manages shared memory/state, and enforces tool-use boundaries per agent.",
     architecture: [
@@ -135,7 +135,7 @@ export const projects: Project[] = [
       "Roadmap: tabbed Customers/Suppliers view, Reports system, AI chat assistant",
     ],
     impactStats: [
-      "Zero data-loss SQLite â†’ PostgreSQL migration",
+      "Zero data-loss SQLite-to-PostgreSQL migration",
       "Custom fine-grained permissions layer",
       "Production-hosted on Render",
     ],

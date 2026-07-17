@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Blocks, Brain, Database } from "lucide-react";
@@ -7,12 +7,12 @@ const pillars = [
   {
     icon: Blocks,
     title: "Systems Thinking",
-    body: "I design for how components fit together — data flow, failure modes, and long-term maintainability — not just individual features.",
+    body: "I design for how components fit together - data flow, failure modes, and long-term maintainability - not just individual features.",
   },
   {
     icon: Brain,
     title: "AI + Backend Integration",
-    body: "I build agentic systems that are grounded in solid backend engineering: real APIs, real databases, real constraints — not just prompts.",
+    body: "I build agentic systems that are grounded in solid backend engineering: real APIs, real databases, real constraints - not just prompts.",
   },
   {
     icon: Database,
@@ -49,7 +49,7 @@ export default function About() {
               Whether it&apos;s turning raw M-Pesa SMS into structured
               financial insight, orchestrating specialist AI agents with
               LangGraph, or migrating a production database without losing
-              data integrity — I care about the same thing: building systems
+              data integrity - I care about the same thing: building systems
               that actually work under real conditions.
             </p>
           </motion.div>

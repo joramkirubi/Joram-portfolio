@@ -63,9 +63,16 @@ export default function Hero() {
 
         <motion.p
           variants={item}
+          className="mt-3 font-mono text-xs uppercase tracking-widest text-muted sm:text-sm"
+        >
+          Based in Kenya - Backend Engineering + Agentic AI + Data Engineering
+        </motion.p>
+
+        <motion.p
+          variants={item}
           className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted sm:text-lg"
         >
-          I design and build intelligent systems â€” from multi-agent AI
+          I design and build intelligent systems - from multi-agent AI
           platforms to real-world data and fintech infrastructure.
         </motion.p>
 
