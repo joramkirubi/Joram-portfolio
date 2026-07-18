@@ -17,7 +17,17 @@ const stack = [
   },
   {
     category: "AI / ML",
-    items: ["OpenAI", "LangChain", "LangGraph", "RAG", "MCP", "SDKs"],
+    items: [
+      "OpenAI",
+      "LangChain",
+      "LangGraph",
+      "LangSmith",
+      "RAG",
+      "MCP",
+      "DeepEval",
+      "Ragas",
+      "SDKs",
+    ],
   },
   {
     category: "Tools",
