@@ -42,15 +42,16 @@ export default function About() {
               I&apos;m a backend engineer and agentic AI builder based in
               Kenya, currently deepening my data engineering foundations. My
               work sits at the intersection of three disciplines: dependable
-              backend infrastructure, coordinated AI agent systems, and the
+              backend infrastructure, specialist AI agent systems, and the
               data pipelines that connect them.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
               Whether it&apos;s turning raw M-Pesa SMS into structured
-              financial insight, orchestrating specialist AI agents with
-              LangGraph, or migrating a production database without losing
-              data integrity - I care about the same thing: building systems
-              that actually work under real conditions.
+              financial insight, building specialist AI agents for domains
+              like healthcare and research, or migrating a production
+              database without losing data integrity - I care about the same
+              thing: building systems that actually work under real
+              conditions.
             </p>
           </motion.div>
 

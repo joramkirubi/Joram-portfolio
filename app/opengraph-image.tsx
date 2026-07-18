@@ -69,7 +69,7 @@ export default function OpengraphImage() {
             lineHeight: 1.5,
           }}
         >
-          Building intelligent systems - from multi-agent AI platforms to
+          Building intelligent systems - from specialist AI agents to
           real-world data and fintech infrastructure.
         </div>
       </div>

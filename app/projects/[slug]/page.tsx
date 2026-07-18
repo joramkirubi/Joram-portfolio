@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { projects, getProject } from "@/lib/projects";
 import { site } from "@/lib/site";
 import CaseStudyAnimated from "@/components/CaseStudyAnimated";
-import MultiAgentDiagram from "@/components/MultiAgentDiagram";
+import AgentPortfolioGrid from "@/components/AgentPortfolioGrid";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -89,15 +89,14 @@ export default async function ProjectPage({
 
           {project.slug === "multi-agent-ai-platform" && (
             <div className="mt-12">
-              <h2 className="text-xl font-semibold text-white">System Architecture</h2>
+              <h2 className="text-xl font-semibold text-white">The Agents</h2>
               <p className="mt-3 leading-relaxed text-muted">
-                A single orchestrator routes each incoming request to the
-                right specialist agent, which retrieves from its own source
-                and calls its own tools. Every agent&apos;s execution is
-                traced end to end.
+                Four standalone agents, each designed and shipped
+                independently rather than sharing one framework. Every repo
+                below is public - click through to see the actual code.
               </p>
               <div className="mt-6">
-                <MultiAgentDiagram />
+                <AgentPortfolioGrid />
               </div>
             </div>
           )}

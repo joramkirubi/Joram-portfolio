@@ -72,8 +72,8 @@ export default function Hero() {
           variants={item}
           className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted sm:text-lg"
         >
-          I design and build intelligent systems - from multi-agent AI
-          platforms to real-world data and fintech infrastructure.
+          I design and build intelligent systems - from specialist AI agents
+          to real-world data and fintech infrastructure.
         </motion.p>
 
         <motion.div

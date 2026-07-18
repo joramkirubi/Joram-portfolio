@@ -23,8 +23,7 @@ export default function Projects() {
           </h2>
           <p className="mt-4 text-muted">
             Real systems solving real problems - spanning fintech
-            intelligence, agentic AI orchestration, and backend
-            infrastructure.
+            intelligence, specialist AI agents, and backend infrastructure.
           </p>
         </motion.div>
 
