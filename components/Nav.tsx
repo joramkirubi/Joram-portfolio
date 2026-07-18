@@ -8,6 +8,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { site } from "@/lib/site";
 
 const links = [
+  { href: "/#experience", label: "Experience" },
   { href: "/#projects", label: "Projects" },
   { href: "/#stack", label: "Stack" },
   { href: "/#about", label: "About" },
