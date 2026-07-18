@@ -19,10 +19,13 @@ const stack = [
     category: "AI / ML",
     items: [
       "OpenAI",
+      "Transformers",
       "LangChain",
       "LangGraph",
       "LangSmith",
       "RAG",
+      "ChromaDB",
+      "Pinecone",
       "MCP",
       "DeepEval",
       "Ragas",
