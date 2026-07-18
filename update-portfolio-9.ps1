@@ -1,4 +1,14 @@
-﻿"use client";
+﻿# ==============================================================
+# Portfolio update script #9 - adds a Data Analytics category
+# (Excel, Power BI, Jupyter Notebook) and VS Code under Tools.
+# Usage:  .\update-portfolio-9.ps1
+# ==============================================================
+
+Write-Host "Starting portfolio update #9..." -ForegroundColor Cyan
+
+# ---- components\TechStack.tsx ----
+@'
+"use client";
 
 import { motion } from "framer-motion";
 
@@ -96,3 +106,16 @@ export default function TechStack() {
     </section>
   );
 }
+'@ | Set-Content -LiteralPath "components\TechStack.tsx" -Encoding utf8
+Write-Host "  wrote components\TechStack.tsx" -ForegroundColor Green
+
+Write-Host ""
+Write-Host "Running lint..." -ForegroundColor Cyan
+npm run lint
+
+Write-Host ""
+Write-Host "Running production build..." -ForegroundColor Cyan
+npm run build
+
+Write-Host ""
+Write-Host "Done. Check the build output above. If clean, git add / commit / push." -ForegroundColor Cyan
