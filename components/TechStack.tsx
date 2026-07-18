@@ -29,6 +29,7 @@ const stack = [
       "MCP",
       "DeepEval",
       "Ragas",
+      "Guardrails",
       "SDKs",
     ],
   },
