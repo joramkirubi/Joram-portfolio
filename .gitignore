@@ -7,3 +7,5 @@ build
 .DS_Store
 npm-debug.log*
 next-env.d.ts
+update-portfolio*.ps1
+update_readme.ps1
