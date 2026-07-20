@@ -156,7 +156,7 @@ export default async function ProjectPage({
               Want the code, architecture diagrams, or a walkthrough?
             </p>
             <a
-              href={site.github}
+              href={project.repoUrl ?? site.github}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-fit items-center gap-2 rounded-lg border border-border bg-surface/60 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-primary/40 hover:text-primary"

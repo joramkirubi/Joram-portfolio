@@ -11,6 +11,7 @@
   highlights: string[];
   impactStats: string[];
   accent: "primary" | "accent";
+  repoUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -144,6 +145,40 @@ export const projects: Project[] = [
       "Production-hosted on Render",
     ],
     accent: "primary",
+  },
+  {
+    slug: "synapseai",
+    name: "SynapseAI",
+    type: "AI Personal Assistant",
+    tagline: "A LangGraph-orchestrated assistant that confirms before it acts.",
+    description:
+      "A calendar, email, and task assistant built on a LangGraph StateGraph, with a two-turn confirm-before-destructive-action flow backed by real conversation-level persistence.",
+    problem:
+      "Personal assistants that can take real actions - sending emails, deleting calendar events, completing tasks - are dangerous if they act on a single ambiguous instruction. A destructive action that gets proposed and confirmed needs to survive across separate requests, not just within one prompt, which most simple agent setups handle incorrectly or not at all.",
+    solution:
+      "SynapseAI routes every request through a LangGraph StateGraph: a guardrail node validates input, a planner selects the right domain (calendar, email, or task), and destructive actions are proposed rather than executed immediately - the user has to explicitly confirm in a separate follow-up turn before anything irreversible happens. LangGraph's checkpointer persists that pending confirmation by thread ID, so the two-call confirm flow works correctly even across separate HTTP requests.",
+    architecture: [
+      "LangGraph StateGraph with guardrail, planner, and domain nodes (calendar, email, task) wired via conditional edges",
+      "Two-call confirmation flow: destructive actions (send email, delete event, delete task) are proposed first, then only executed after explicit confirmation on a separate turn",
+      "SQLite-backed checkpointer persists per-conversation state by thread ID, so pending confirmations survive across requests",
+      "ID resolution by fuzzy title matching rather than trusting the LLM to recall a database ID directly",
+      "Deterministic offline mode: the full graph and eval suite run with zero API key via a keyword-based mock LLM responder",
+      "Three interfaces sharing one compiled graph: CLI, FastAPI HTTP API, and a dependency-free chat web UI",
+    ],
+    stack: ["Python", "LangGraph", "FastAPI", "Groq", "SQLite"],
+    highlights: [
+      "Destructive actions require explicit confirmation on a separate turn, not just a single ambiguous instruction",
+      "Runs fully offline with zero API key via a deterministic mock LLM mode",
+      "Built-in evaluation suite scoring routing accuracy, confirmation-gating accuracy, and completeness",
+      "Guardrails tuned deliberately - PII redaction skips email addresses since reading and writing them is the assistant's core job",
+    ],
+    impactStats: [
+      "Two-turn confirm-before-destructive-action flow",
+      "Runs offline with zero API key required",
+      "Built-in eval suite for routing + confirmation accuracy",
+    ],
+    accent: "accent",
+    repoUrl: "https://github.com/joramkirubi/SynapseAI",
   },
 ];
 
