@@ -63,15 +63,16 @@ export const projects: Project[] = [
     slug: "multi-agent-ai-platform",
     name: "AI Agent Suite",
     type: "Agentic AI Systems",
-    tagline: "Four independent specialist agents, each solving a different real-world problem.",
+    tagline: "Five independent specialist agents, each solving a different real-world problem.",
     description:
-      "Four independently built AI agents - a RAG-grounded Medical Assistant, plus dedicated Research, Publication, and Customer Support agents - each designed, deployed, and open sourced on its own.",
+      "Five independently built AI agents - a RAG-grounded Medical Assistant, a LangGraph-orchestrated personal assistant (SynapseAI), plus dedicated Research, Publication, and Customer Support agents - each designed, deployed, and open sourced on its own.",
     problem:
-      "Different problem domains - medical Q&A, research synthesis, publication drafting, and customer support - need very different context, tools, and safety guardrails. Handling all of them inside one generic chatbot produces shallow, unreliable results in every domain.",
+      "Different problem domains - medical Q&A, research synthesis, publication drafting, personal task management, and customer support - need very different context, tools, and safety guardrails. Handling all of them inside one generic chatbot produces shallow, unreliable results in every domain.",
     solution:
-      "Rather than force one system to cover every domain, each agent is purpose-built and shipped independently, with its own setup and design suited to its own task. The Medical Assistant uses a RAG pipeline grounded in curated documents with ReAct reasoning and cited sources; the Research, Publication, and Customer Support agents are each tuned to their own workflow. Unifying them under shared orchestration and tracing is the natural next step as this portfolio matures.",
+      "Rather than force one system to cover every domain, each agent is purpose-built and shipped independently, with its own setup and design suited to its own task. The Medical Assistant uses a RAG pipeline grounded in curated documents with ReAct reasoning and cited sources; SynapseAI uses a LangGraph StateGraph with a two-turn confirm-before-destructive-action flow for calendar, email, and task actions; the Research, Publication, and Customer Support agents are each tuned to their own workflow.",
     architecture: [
       "Medical Assistant: RAG pipeline over curated medical documents with ReAct reasoning and source-cited answers",
+      "SynapseAI: LangGraph StateGraph personal assistant with a two-turn confirm-before-destructive-action flow for calendar, email, and task actions, backed by checkpointed conversation state",
       "Research Agent: standalone agent for multi-step research retrieval and synthesis",
       "Publication Assistant: standalone agent for structured document drafting workflows",
       "Customer Support Agent: standalone agent for support intent routing and query resolution",
@@ -94,13 +95,14 @@ export const projects: Project[] = [
       "OpenAI",
     ],
     highlights: [
-      "Four standalone agents, each open source in its own public repo",
+      "Five standalone agents, each open source in its own public repo",
       "Medical Assistant grounded in RAG with cited sources to reduce hallucination risk",
+      "SynapseAI requires explicit two-turn confirmation before any destructive action executes",
       "Hands-on comparison of agent design patterns across different problem domains",
       "Agent output quality evaluated using DeepEval and Ragas metrics",
     ],
     impactStats: [
-      "4 independently built specialist agents",
+      "5 independently built specialist agents",
       "RAG-grounded Medical Assistant with cited sources",
       "Each agent open source in its own repo",
     ],
@@ -145,40 +147,6 @@ export const projects: Project[] = [
       "Production-hosted on Render",
     ],
     accent: "primary",
-  },
-  {
-    slug: "synapseai",
-    name: "SynapseAI",
-    type: "AI Personal Assistant",
-    tagline: "A LangGraph-orchestrated assistant that confirms before it acts.",
-    description:
-      "A calendar, email, and task assistant built on a LangGraph StateGraph, with a two-turn confirm-before-destructive-action flow backed by real conversation-level persistence.",
-    problem:
-      "Personal assistants that can take real actions - sending emails, deleting calendar events, completing tasks - are dangerous if they act on a single ambiguous instruction. A destructive action that gets proposed and confirmed needs to survive across separate requests, not just within one prompt, which most simple agent setups handle incorrectly or not at all.",
-    solution:
-      "SynapseAI routes every request through a LangGraph StateGraph: a guardrail node validates input, a planner selects the right domain (calendar, email, or task), and destructive actions are proposed rather than executed immediately - the user has to explicitly confirm in a separate follow-up turn before anything irreversible happens. LangGraph's checkpointer persists that pending confirmation by thread ID, so the two-call confirm flow works correctly even across separate HTTP requests.",
-    architecture: [
-      "LangGraph StateGraph with guardrail, planner, and domain nodes (calendar, email, task) wired via conditional edges",
-      "Two-call confirmation flow: destructive actions (send email, delete event, delete task) are proposed first, then only executed after explicit confirmation on a separate turn",
-      "SQLite-backed checkpointer persists per-conversation state by thread ID, so pending confirmations survive across requests",
-      "ID resolution by fuzzy title matching rather than trusting the LLM to recall a database ID directly",
-      "Deterministic offline mode: the full graph and eval suite run with zero API key via a keyword-based mock LLM responder",
-      "Three interfaces sharing one compiled graph: CLI, FastAPI HTTP API, and a dependency-free chat web UI",
-    ],
-    stack: ["Python", "LangGraph", "FastAPI", "Groq", "SQLite"],
-    highlights: [
-      "Destructive actions require explicit confirmation on a separate turn, not just a single ambiguous instruction",
-      "Runs fully offline with zero API key via a deterministic mock LLM mode",
-      "Built-in evaluation suite scoring routing accuracy, confirmation-gating accuracy, and completeness",
-      "Guardrails tuned deliberately - PII redaction skips email addresses since reading and writing them is the assistant's core job",
-    ],
-    impactStats: [
-      "Two-turn confirm-before-destructive-action flow",
-      "Runs offline with zero API key required",
-      "Built-in eval suite for routing + confirmation accuracy",
-    ],
-    accent: "accent",
-    repoUrl: "https://github.com/joramkirubi/SynapseAI",
   },
 ];
 

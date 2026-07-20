@@ -45,6 +45,14 @@ const agentRepos: AgentRepo[] = [
       "Standalone agent for customer support query handling and intent routing.",
     accent: "accent",
   },
+  {
+    name: "SynapseAI",
+    repo: "SynapseAI",
+    tag: "LangGraph + Confirm Flow",
+    description:
+      "Calendar, email, and task assistant built on a LangGraph StateGraph, with a two-turn confirm-before-destructive-action flow.",
+    accent: "primary",
+  },
 ];
 
 export default function AgentPortfolioGrid() {
@@ -64,6 +72,9 @@ export default function AgentPortfolioGrid() {
             ? "hover:border-primary/40"
             : "hover:border-accent/40";
 
+        const isLastOdd =
+          index === agentRepos.length - 1 && agentRepos.length % 2 !== 0;
+
         return (
           <motion.a
             key={agent.repo}
@@ -74,7 +85,9 @@ export default function AgentPortfolioGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
-            className={`card-glow group flex flex-col justify-between rounded-2xl border border-border bg-surface/50 p-5 transition-all hover:-translate-y-1 ${accentBorder}`}
+            className={`card-glow group flex flex-col justify-between rounded-2xl border border-border bg-surface/50 p-5 transition-all hover:-translate-y-1 ${accentBorder} ${
+              isLastOdd ? "sm:col-span-2" : ""
+            }`}
           >
             <div>
               <div className="flex items-start justify-between gap-3">

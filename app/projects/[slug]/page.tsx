@@ -91,7 +91,7 @@ export default async function ProjectPage({
             <div className="mt-12">
               <h2 className="text-xl font-semibold text-white">The Agents</h2>
               <p className="mt-3 leading-relaxed text-muted">
-                Four standalone agents, each designed and shipped
+                Five standalone agents, each designed and shipped
                 independently rather than sharing one framework. Every repo
                 below is public - click through to see the actual code.
               </p>
