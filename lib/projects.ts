@@ -63,16 +63,17 @@ export const projects: Project[] = [
     slug: "multi-agent-ai-platform",
     name: "AI Agent Suite",
     type: "Agentic AI Systems",
-    tagline: "Five independent specialist agents, each solving a different real-world problem.",
+    tagline: "Six independent specialist agents, each solving a different real-world problem.",
     description:
-      "Five independently built AI agents - a RAG-grounded Medical Assistant, a LangGraph-orchestrated personal assistant (SynapseAI), plus dedicated Research, Publication, and Customer Support agents - each designed, deployed, and open sourced on its own.",
+      "Six independently built AI agents - a RAG-grounded Medical Assistant, a LangGraph-orchestrated personal assistant (SynapseAI), an autonomous coding agent (PatchPilot) that opens real pull requests, plus dedicated Research, Publication, and Customer Support agents - each designed, deployed, and open sourced on its own.",
     problem:
-      "Different problem domains - medical Q&A, research synthesis, publication drafting, personal task management, and customer support - need very different context, tools, and safety guardrails. Handling all of them inside one generic chatbot produces shallow, unreliable results in every domain.",
+      "Different problem domains - medical Q&A, research synthesis, publication drafting, personal task management, autonomous code changes, and customer support - need very different context, tools, and safety guardrails. Handling all of them inside one generic chatbot produces shallow, unreliable results in every domain.",
     solution:
-      "Rather than force one system to cover every domain, each agent is purpose-built and shipped independently, with its own setup and design suited to its own task. The Medical Assistant uses a RAG pipeline grounded in curated documents with ReAct reasoning and cited sources; SynapseAI uses a LangGraph StateGraph with a two-turn confirm-before-destructive-action flow for calendar, email, and task actions; the Research, Publication, and Customer Support agents are each tuned to their own workflow.",
+      "Rather than force one system to cover every domain, each agent is purpose-built and shipped independently, with its own setup and design suited to its own task. The Medical Assistant uses a RAG pipeline grounded in curated documents with ReAct reasoning and cited sources; SynapseAI uses a LangGraph StateGraph with a two-turn confirm-before-destructive-action flow for calendar, email, and task actions; PatchPilot runs a plan-edit-test loop against a cloned repo and only commits, pushes, or opens a PR after explicit confirmation; the Research, Publication, and Customer Support agents are each tuned to their own workflow.",
     architecture: [
       "Medical Assistant: RAG pipeline over curated medical documents with ReAct reasoning and source-cited answers",
       "SynapseAI: LangGraph StateGraph personal assistant with a two-turn confirm-before-destructive-action flow for calendar, email, and task actions, backed by checkpointed conversation state",
+      "PatchPilot: single-agent tool-calling loop that clones a repo, plans and edits code, runs tests, and only commits/pushes/opens a PR after explicit confirmation",
       "Research Agent: standalone agent for multi-step research retrieval and synthesis",
       "Publication Assistant: standalone agent for structured document drafting workflows",
       "Customer Support Agent: standalone agent for support intent routing and query resolution",
@@ -92,17 +93,19 @@ export const projects: Project[] = [
       "DeepEval",
       "Ragas",
       "Guardrails",
+      "Groq",
       "OpenAI",
     ],
     highlights: [
-      "Five standalone agents, each open source in its own public repo",
+      "Six standalone agents, each open source in its own public repo",
       "Medical Assistant grounded in RAG with cited sources to reduce hallucination risk",
       "SynapseAI requires explicit two-turn confirmation before any destructive action executes",
+      "PatchPilot has shipped a real pull request end-to-end against a live test repo",
       "Hands-on comparison of agent design patterns across different problem domains",
       "Agent output quality evaluated using DeepEval and Ragas metrics",
     ],
     impactStats: [
-      "5 independently built specialist agents",
+      "6 independently built specialist agents",
       "RAG-grounded Medical Assistant with cited sources",
       "Each agent open source in its own repo",
     ],

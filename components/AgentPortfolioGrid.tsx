@@ -53,6 +53,14 @@ const agentRepos: AgentRepo[] = [
       "Calendar, email, and task assistant built on a LangGraph StateGraph, with a two-turn confirm-before-destructive-action flow.",
     accent: "primary",
   },
+  {
+    name: "PatchPilot",
+    repo: "PatchPilot",
+    tag: "Tool-Calling Loop + Confirm Gate",
+    description:
+      "Autonomous coding agent - clones a repo, plans and edits code via tool calls, runs tests in a loop, then asks for confirmation before committing, pushing, and opening a PR.",
+    accent: "accent",
+  },
 ];
 
 export default function AgentPortfolioGrid() {
