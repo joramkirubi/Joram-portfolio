@@ -61,6 +61,14 @@ const agentRepos: AgentRepo[] = [
       "Autonomous coding agent - clones a repo, plans and edits code via tool calls, runs tests in a loop, then asks for confirmation before committing, pushing, and opening a PR.",
     accent: "accent",
   },
+  {
+    name: "Orchestra",
+    repo: "Orchestra.lg",
+    tag: "Multi-Agent Orchestration",
+    description:
+      "Takes a high-level goal, decomposes it into subtasks, and runs a Supervisor, Researcher, Analyst, and Writer in parallel via LangGraph's Send API, with a Critic gating every output and checkpointed resume.",
+    accent: "primary",
+  },
 ];
 
 export default function AgentPortfolioGrid() {

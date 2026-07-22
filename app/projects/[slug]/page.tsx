@@ -91,9 +91,11 @@ export default async function ProjectPage({
             <div className="mt-12">
               <h2 className="text-xl font-semibold text-white">The Agents</h2>
               <p className="mt-3 leading-relaxed text-muted">
-                Six standalone agents, each designed and shipped
-                independently rather than sharing one framework. Every repo
-                below is public - click through to see the actual code.
+                Seven standalone systems, each designed and shipped
+                independently rather than sharing one framework - most are
+                single agents, while Orchestra is the one genuine
+                multi-agent orchestrator in the group. Every repo below is
+                public - click through to see the actual code.
               </p>
               <div className="mt-6">
                 <AgentPortfolioGrid />
