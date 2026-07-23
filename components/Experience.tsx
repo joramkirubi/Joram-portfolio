@@ -15,7 +15,7 @@ type Job = {
 
 const jobs: Job[] = [
   {
-    title: "IT Support Consultant",
+    title: "IT & AI Support Specialist",
     org: "Intex Management Services",
     locationType: "Hybrid",
     start: "Feb 2025",
@@ -36,6 +36,7 @@ const jobs: Job[] = [
       "Knowledge Engineering",
       "SQL Server",
       "Python",
+      "AI Engineering",
       "SSO",
       "Quality Management",
       "ISO Standards",
